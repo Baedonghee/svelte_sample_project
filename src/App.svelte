@@ -51,11 +51,11 @@
 
 <main>
   {#if page === 'overview'}
-  {#if editMode === 'edit'}
-    <EditMeetup id={editedId} on:save={saveMeetup} on:cancel={cancelEdit} />
-  {/if}
-  <MeetupGrid meetups={$meetups} on:showdetails={showDetails} on:edit={startEdit} on:add={() =>  editMode = 'edit' }/>
-  {:else}
-    <MeetupDetail id={pageData.id} on:close={closeDetails}/>
+    {#if editMode === 'edit'}
+      <EditMeetup id={editedId} on:save={saveMeetup} on:cancel={cancelEdit} />
+    {/if}
+    <MeetupGrid meetups={$meetups} on:showdetails={showDetails} on:edit={startEdit} on:add={() =>  editMode = 'edit' }/>
+    {:else}
+      <MeetupDetail id={pageData.id} on:close={closeDetails}/>
   {/if}
 </main>
